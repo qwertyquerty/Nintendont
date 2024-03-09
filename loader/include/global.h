@@ -42,22 +42,22 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #define MENU_POS_X			25
 #define MENU_POS_Y			34
-#define DEFAULT_SIZE		16 // At 16, all characters are 10 pixels wide.  Use this to calculate centers
-#define MENU_SIZE			16 // If we run out of screen space this should be made smaller
+#define DEFAULT_SIZE		29 // At 16, all characters are 10 pixels wide.  Use this to calculate centers
+#define MENU_SIZE			29 // If we run out of screen space this should be made smaller
 
-#define ARROW_LEFT			"\xE2\x97\x80"
-#define ARROW_RIGHT			"\xE2\x96\xB6"
+#define ARROW_LEFT			"<<"
+#define ARROW_RIGHT			">>"
 
 // RGBA Colors
 #define AQUA				0x00FFFFFF
-#define BLACK				0x000000FF
+#define BLACK				0x51EAF3FF // changed to blue
 #define BLUE				0x0000FFFF
 #define DARK_BLUE			0x00173bFF
 #define FUCHSIA				0xFF00FFFF
 #define GRAY				0x808080FF
 #define GREEN				0x00C108FF
 #define LIME				0x00FF00FF
-#define MAROON				0x800000FF
+#define MAROON				0xF459C0FF // changed to purple
 #define NAVY				0x000080FF
 #define OLIVE				0x808000FF
 #define PURPLE				0x800080FF

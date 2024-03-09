@@ -816,7 +816,7 @@ int main(int argc, char **argv)
 			
 			FPAD_Update();
 
-			if (FPAD_Cancel(0)) {
+			if (FPAD_Start(0)) {
 				ncfg->Config &= ~NIN_CFG_AUTO_BOOT;
 				break;
 			}

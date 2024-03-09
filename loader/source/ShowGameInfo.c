@@ -37,7 +37,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "md5_db.h"
 
 // Dark gray for grayed-out menu items.
-#define DARK_GRAY 0x666666FF
+#define DARK_GRAY 0x644383FF
 
 // String length macros.
 // Used for center alignment.
@@ -278,7 +278,7 @@ static void DrawGameInfoScreen(const gameinfo *gi, const MD5VerifyState_t *md5)
 
 	// Print information.
 	PrintInfo();
-	PrintButtonActions("Go Back", NULL, btn_B, NULL);
+	PrintButtonActions(NULL, NULL, "Go Back", NULL);
 
 	// "Calculate MD5" should be displayed for all formats,
 	// but grayed out if it isn't supported.
@@ -516,7 +516,7 @@ void ShowGameInfo(const gameinfo *gi)
 		}
 
 		FPAD_Update();
-		if (FPAD_Start(0)) {
+		if (FPAD_Cancel(0)) {
 			// If MD5 is running, cancel it.
 			if (md5.running) {
 				md5.running = false;
@@ -533,13 +533,6 @@ void ShowGameInfo(const gameinfo *gi)
 				// Start the MD5 calculation.
 				OpenDiscImage(gi, &md5);
 				redraw = true;
-			}
-		} else if (FPAD_Cancel(0)) {
-			// If MD5 is running, cancel it.
-			if (md5.running) {
-				md5.running = false;
-				md5.cancelled = true;
-				CloseDiscImage(&md5);
 			}
 		}
 	}

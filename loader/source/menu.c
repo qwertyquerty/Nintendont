@@ -43,7 +43,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "ShowGameInfo.h"
 
 // Dark gray for grayed-out menu items.
-#define DARK_GRAY 0x666666FF
+#define DARK_GRAY 0xB482A3FF
 
 // Device state.
 typedef enum {
@@ -62,10 +62,10 @@ static u8 devState = DEV_OK;
 const u32 DiscFormatColors[8] =
 {
 	BLACK,		// Full
-	0x551A00FF,	// Shrunken (dark brown)
-	0x00551AFF,	// Extracted FST
-	0x001A55FF,	// CISO
-	0x551A55FF,	// Multi-Game
+	MAROON,	// Shrunken (dark brown)
+	MAROON,	// Extracted FST
+	MAROON,	// CISO
+	MAROON,	// Multi-Game
 	GRAY,		// undefined
 	GRAY,		// undefined
 	GRAY,		// undefined
@@ -1757,14 +1757,14 @@ static int SelectGame(void)
 		if(Shutdown)
 			LoaderShutdown();
 
-		if( FPAD_Start(0) )
+		if( FPAD_Cancel(0) )
 		{
 			// Go back to the Device Select menu.
 			ctx.selected = false;
 			break;
 		}
 
-		if( FPAD_Cancel(0) )
+		if( FPAD_Start(0) )
 		{
 			// Switch menu modes.
 			ctx.menuMode = !ctx.menuMode;
@@ -1802,7 +1802,7 @@ static int SelectGame(void)
 			if (ctx.menuMode == 0)
 			{
 				// Game List menu.
-				PrintButtonActions("Go Back", NULL, "Settings", NULL);
+				PrintButtonActions("Settings", NULL, "Go Back", NULL);
 				// If the selected game bootable, enable "Select".
 				u32 color = ((ctx.games.canBeBooted) ? BLACK : DARK_GRAY);
 				PrintFormat(DEFAULT_SIZE, color, MENU_POS_X + 430, MENU_POS_Y + 20*1, "A   : Select");
@@ -1813,7 +1813,7 @@ static int SelectGame(void)
 			else
 			{
 				// Settings menu.
-				PrintButtonActions("Go Back", "Select", "Settings", "Update");
+				PrintButtonActions("Settings", "Select", "Go Back", "Update");
 			}
 
 			if (ctx.menuMode == 0 ||
@@ -1884,7 +1884,7 @@ bool SelectDevAndGame(void)
 		{
 			UseSD = (ncfg->Config & NIN_CFG_USB) == 0;
 			PrintInfo();
-			PrintButtonActions("Exit", "Select", NULL, NULL);
+			PrintButtonActions(NULL, "Select", "Exit", NULL);
 			PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X + 53 * 6 - 8, MENU_POS_Y + 20 * 6, UseSD ? ARROW_LEFT : "");
 			PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X + 53 * 6 - 8, MENU_POS_Y + 20 * 7, UseSD ? "" : ARROW_LEFT);
 			PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X + 47 * 6 - 8, MENU_POS_Y + 20 * 6, " SD  ");
@@ -1905,7 +1905,7 @@ bool SelectDevAndGame(void)
 			if (ret & 1) break;
 			redraw = true;
 		}
-		else if (FPAD_Start(0))
+		else if (FPAD_Cancel(0))
 		{
 			ShowMessageScreenAndExit("Returning to loader...", 0);
 		}
@@ -1965,10 +1965,10 @@ void PrintInfo(void)
 	const char *consoleType = (isWiiVC ? (IsWiiUFastCPU() ? "WiiVC 5x CPU" : "Wii VC") : (IsWiiUFastCPU() ? "WiiU 5x CPU" : (IsWiiU() ? "Wii U" : "Wii")));
 #ifdef NIN_SPECIAL_VERSION
 	// "Special" version with customizations. (Not mainline!)
-	PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*0, "Nintendont Loader v%u.%u" NIN_SPECIAL_VERSION " (%s)",
+	PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*0, "Nyatendont Loader v%u.%u" NIN_SPECIAL_VERSION " (%s)",
 		    NIN_VERSION>>16, NIN_VERSION&0xFFFF, consoleType);
 #else
-	PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*0, "Nintendont Loader v%u.%u (%s)",
+	PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*0, "Nyatendont Loader v%u.%u (%s)",
 		    NIN_VERSION>>16, NIN_VERSION&0xFFFF, consoleType);
 #endif
 	PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*1, "Built   : " __DATE__ " " __TIME__);

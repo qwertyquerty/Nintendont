@@ -190,20 +190,8 @@ void Initialise(bool autoboot)
 	background = GRRLIB_LoadTexturePNG(background_png);
 	screen_buffer = GRRLIB_CreateEmptyTexture(rmode->fbWidth, rmode->efbHeight);
 
-	// Calculate the background image scale.
-	bg_isWidescreen = (CONF_GetAspectRatio() == CONF_ASPECT_16_9);
-	if (bg_isWidescreen)
-	{
-		// Widescreen. 0.75x scaling, 80px offset.
-		bg_xScale = 0.75f;
-		bg_xPos = 80;
-	}
-	else
-	{
-		// Standard screen. 1.0x scaling, 0px offset.
-		bg_xScale = 1.0f;
-		bg_xPos = 0;
-	}
+	bg_xScale = 1.0f;
+	bg_xPos = 0;
 
 	if(autoboot == false)
 	{

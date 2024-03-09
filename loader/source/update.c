@@ -320,7 +320,7 @@ void UpdateNintendont(void) {
 	while (true) {
 		if (redraw) {
 			PrintInfo();
-			PrintButtonActions("Go Back", "Update", NULL, NULL);
+			PrintButtonActions(NULL, "Update", "Go Back", NULL);
 
 			// Update menu.
 			PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X + 50, MENU_POS_Y + 20*5, "Download Nintendont");
@@ -348,7 +348,7 @@ void UpdateNintendont(void) {
 			} else {
 				break;
 			}
-		} else if (FPAD_Start(0)) {
+		} else if (FPAD_Cancel(0)) {
 			break;
 		} else if (FPAD_Down(1)) {
 			delay = ticks_to_millisecs(gettime()) + 150;

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <app version="1">
-	<name>Nintendont</name>
-	<coder>FIX94, crediar</coder>
-	<version>4.431</version>
-	<release_date>20161218000000</release_date>
-	<short_description>Gamecube Loader</short_description>
-	<long_description>Commiters: GerbilSoft, JoostinOnline, GreyRogue, Howard, Cyan, nastys 
+	<name>Nyatendont :3</name>
+	<coder>Madeline, FIX94, crediar</coder>
+	<version>6.501</version>
+	<release_date>20240308000000</release_date>
+	<short_description>Gamecyube Woader uwu :3</short_description>
+	<long_description>Commiters: Madeline, GerbilSoft, JoostinOnline, GreyRogue, Howard, Cyan, nastys 
 
- Project website: https://github.com/FIX94/Nintendont 
+ Pwoject website: https://github.com/FIX94/Nintendont 
 
-Nintendont allows you to run GameCube games on a Wii or Wii U from an SD or HDD device.</long_description>
+Nyatendont allows you to wun GameCyube games on a Wii or Wii U fwom an SD or HDD dewice :3.</long_description>
 	<no_ios_reload/>
 	<ahb_access/>
 </app>
